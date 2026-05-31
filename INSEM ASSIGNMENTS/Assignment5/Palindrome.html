@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Number Checker</title>
+    <script>
+        function checkPalindrome() {
+            var num = document.getElementById("number").value;
+            if (num === "") {
+                alert("Please enter a number.");
+                return;
+            }
+
+            var original = parseInt(num);
+            var temp = original;
+            var reverse = 0;
+            var remainder;
+
+            while (temp > 0) {
+                remainder = temp % 10;
+                reverse = reverse * 10 + remainder;
+                temp = parseInt(temp / 10);
+            }
+
+            if (reverse === original) {
+                document.getElementById("result").innerHTML =
+                    original + " is a palindrome number.";
+            } else {
+                document.getElementById("result").innerHTML =
+                    original + " is not a palindrome number.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Palindrome Number Checker</h1>
+
+    <label>Enter a number:</label>
+    <input type="number" id="number">
+    <button onclick="checkPalindrome()">Check</button>
+
+    <p id="result"></p>
+</body>
+</html>

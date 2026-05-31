@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email and Password Verification</title>
+    <script>
+        function validateLogin() {
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value.trim();
+
+            // Basic email pattern
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                alert("Please enter your email.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (password === "") {
+                alert("Please enter your password.");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            alert("Login successful! Email and password are valid.");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Online Book Store - User Login</h1>
+
+    <form onsubmit="return validateLogin()">
+        <label>Email ID:</label>
+        <input type="text" id="email"><br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password"><br><br>
+
+        <input type="submit" value="Login">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
